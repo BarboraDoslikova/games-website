@@ -25,7 +25,7 @@ body {
 
 /* content div */
 .content {
-    background-color: white;
+    background-color: #F8F8F8; /* off-white */
     border-bottom: 0.53em solid #5C2C00;  
 }
 .row {
@@ -34,8 +34,8 @@ body {
 
 /* buttons */
 .btn {
-    border: white;
-    background-color: white;
+    border: #F8F8F8; /* off-white */
+    background-color: #F8F8F8; /* off-white */
     color: #584630;
     border-radius: 50px;
     font-size: 3.0em;
