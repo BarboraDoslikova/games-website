@@ -1,52 +1,54 @@
 function rockPaperSci() {
     // Asks the user to make a choice.
-    var userChoice = prompt("Do you choose rock, paper or scissors?");
-    console.log(userChoice);
+    var userChoice = prompt("Do you choose ROCK, PAPER or SCISSORS?").toUpperCase();
+    alert("You choose " + userChoice + " !");
 
     // Selects a random number as the basis for the computer's choice.
     var computerChoice = Math.random();
-    // Prints computer's choice. 
-    console.log(computerChoice);
+
     // Cconverts the previously generated random number into the computer's choice.
     if (computerChoice <= 0.33) {
-        computerChoice = "rock";
+        computerChoice = "ROCK";
+        alert("The computer chooses ROCK!");
     }
     else if (computerChoice >= 0.66) {
-        computerChoice = "paper";
+        computerChoice = "PAPER";
+        alert("The computer chooses PAPER!");
     }
     else
     {
-        computerChoice = "scissors";
+        computerChoice = "SCISSORS";
+        alert("The computer chooses SCISSORS!");
     };
 
     // Compares the user's and computer's choices and returns the result.
-    var compare = function(choice1, choice2) {
-        if (choice1 === choice2) {
-            return "The result is a tie!";
+    var compare = function(userChoice, computerChoice) {
+        if (userChoice === computerChoice) {
+            alert("The result is a tie!");
         }
-        else if (choice1 === "rock") {
-            if (choice2 === "scissors") {
-                return "rock wins";
+        else if (userChoice === "ROCK") {
+            if (computerChoice === "SCISSORS") {
+                alert("You win!");
             }
             else {
-                return "paper wins";
-            };    
+                alert("You lose!");
+            }   
         }
-        else if (choice1 === "paper") {
-            if (choice2 === "rock") {
-                return "paper wins";
+        else if (userChoice === "PAPER") {
+            if (computerChoice === "ROCK") {
+                alert("You win!");
             }
             else {
-                return "scissors wins";
-            };    
+                alert("You lose!");
+            }    
         }
-        else if (choice1 === "scissors") {
-            if (choice2 === "rock") {
-                return "rock wins";
+        else if (userChoice === "SCISSORS") {
+            if (computerChoice === "PAPER") {
+                alert("You win!");
             }
             else {
-                return "scissors wins";
-            };    
+                alert("You lose!");
+            } 
         }
     };
 
