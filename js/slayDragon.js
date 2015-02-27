@@ -14,22 +14,27 @@ function slayDragon() {
 
     var totalDamage = 0;
 
+    alert("You're an extremely brave fighter and as such you have decided to help your kingdom and beat a dangerous dragon. You travel long and far. Finally, you find the dragon's cave.");
+    alert("Whoops, nobody has told you that the dragon has 5 heads!");
+    alert("Well, what can you do... After saying your prayers, you are about the face the dragon. Whether you hit it or miss it depends on the odds of the fate.");
+    alert("You start hitting the dragon with your shiny sword and hope for the best! You can't miss even once or it kills you!");
+
     while(slaying) {
         if(youHit) {
-            console.log("You hit the dragon and did " + damageThisRound + " damage!");
+            alert("You hit the dragon and do " + damageThisRound + " damage!");
             totalDamage += damageThisRound;
             
-            if(totalDamage >= 4) {
-                console.log("Congrats, you killed the dragon!");
+            if(totalDamage === 5) {
+                alert("Congrats, you killed the 5-headed dragon!");
                 slaying = false;
             }
-            else{
+            else if (totalDamage >= 1){
+                alert("Good, you did some damage but not enough. Remember the dragon has 5 heads!");
                 youHit = Math.floor(Math.random() * 2);
             }      
-        }
-        
+        }        
         else{
-            console.log("You missed and the dragon killed you!");
+            alert("Oh no, you missed! And the dragon killed you with its most viscious head!");
             slaying = false;   
         }
     }
