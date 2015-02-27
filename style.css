@@ -40,13 +40,13 @@ body {
     font-size: 3.0em;
 }
 .btn:visited {
-    color: #EFDE6A;
+    color: #bb772f;
 }
 .btn:hover {
-    color: #EFDE6A;
+    color: #bb772f;
 }
 .btn:active {
-    color: #EFDE6A;
+    color: #bb772f;
 }
 
 .btn1 {
@@ -68,6 +68,7 @@ body {
 /* how to play */
 .how {
     margin-top: 3em;
+    line-height: 2em;
     color: #584630;
     font-family: "Delius Swash Caps", Verdana, sans-serif;
 }
@@ -85,8 +86,8 @@ body {
     color: #584630;
 }
 .how a:hover {
-    color: #EFDE6A;
+    color: #bb772f;
 }
 .how a:active {
-    color: #EFDE6A;
+    color: #bb772f;
 }
