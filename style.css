@@ -31,6 +31,9 @@ body {
 .row {
     margin: 2.5em 0;
 }
+.buttons {
+    margin-top: 1.5em;
+}
 
 /* buttons */
 .btn {
@@ -40,13 +43,16 @@ body {
     border-radius: 50px;
     font-size: 2.5em;
 }
-.btn:visited {
+.btn:link {
     color: #bb772f;
 }
 .btn:hover {
     color: #bb772f;
 }
 .btn:active {
+    color: #bb772f;
+}
+.btn:visited {
     color: #bb772f;
 }
 
@@ -83,7 +89,7 @@ body {
     font-size: 1.0em;
     text-decoration: none;
 }
-.how a:visited {
+.how a:link {
     color: #584630;
 }
 .how a:hover {
@@ -91,6 +97,9 @@ body {
 }
 .how a:active {
     color: #bb772f;
+}
+.how a:visited {
+    color: #584630;
 }
 
 /* footer */
