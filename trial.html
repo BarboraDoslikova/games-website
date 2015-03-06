@@ -1,0 +1,82 @@
+<html>
+<head>
+	<style>
+		body {
+			font-family: Verdana, sans-serif;
+		}
+		#myAnswerID, #myAnswerID1, #myAnswerID2 {
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="startText">You have entered my magical forest! To pass through it, you will have to prove your worth. Would you like to try your luck against a UNICORN, a TROLL, or a RABBIT?</div>
+
+	<input id="myAnswerID">
+	<input type="submit" value="submitMyAnswer" onclick="showReplyText()">
+
+
+	<div id="replyText"></div>
+
+	<input id="myAnswerID2" style="visibility:hidden">
+	<input type="submit" value="submitMyAnswer" onclick="showReplyText2()" id="submitID2" style="visibility:hidden">
+
+	<div id="replyText2"></div>
+
+	<input id="myAnswerID3" style="visibility:hidden">
+	<input type="submit" value="submitMyAnswer" onclick="showReplyText3()" id="submitID3" style="visibility:hidden">
+
+	<div id="replyText3"></div>
+
+	<script type="text/javascript">		
+		
+		function showReplyText () {
+			var myAnswer = document.getElementById("myAnswerID").value.toUpperCase();
+			console.log(myAnswer);
+
+			switch (myAnswer) {
+		    	case 'UNICORN':
+		    		document.getElementById("replyText").innerHTML = "I knew you would pick a unicorn! Before you start the challenge, have you ever killed anyone (YES or NO)?";
+		    		break;
+		    	case 'TROLL':
+		    		document.getElementById("replyText").innerHTML = "I knew you would pick a troll! Before you start the challenge, have you ever picked your nose (YES or NO)?";
+    				break;			    		   	
+		    	case 'RABBIT':
+		    		document.getElementById("replyText").innerHTML = "I knew you would pick a rabbit! Before you start the challenge, have you ever eaten a rabbit (YES or NO)?";
+    				break;	
+		    	default:
+		    		document.getElementById("replyText").innerHTML = "Please pick a UNICORN, a TROLL or a RABBIT.";
+		    		break;	
+		    }
+		    if (myAnswer === 'UNICORN' || myAnswer === 'TROLL' || myAnswer === 'RABBIT'){
+		    		document.getElementById("replyText").style.visibility = "visible";
+    				document.getElementById("myAnswerID2").style.visibility = "visible";
+    				document.getElementById("submitID2").style.visibility = "visible";
+    		}
+		} //closes showReplyText    
+
+		function showReplyText2 () {
+			var myAnswer = document.getElementById("myAnswerID2").value.toUpperCase();
+			console.log(myAnswer);
+
+			if(myAnswer === 'YES'){
+        		document.getElementById("replyText2").innerHTML = "Ehm. That was unexpected. Leave my magical forest right now before I call the magical forest police!";
+    		}
+   			else if (myAnswer === 'NO'){
+        		document.getElementById("replyText2").innerHTML = "Good, just checking... Are you YOUNG or OLD?";
+    		}
+    		else {
+    			document.getElementById("replyText2").innerHTML = "Please answer YES or NO.";
+    		}
+    		if (myAnswer === 'NO'){
+		    		document.getElementById("replyText2").style.visibility = "visible";
+    				document.getElementById("myAnswerID3").style.visibility = "visible";
+    				document.getElementById("submitID3").style.visibility = "visible";
+    		}
+		 } //closes showReplyText2      		
+
+	</script>
+</body>
+
+</html>
