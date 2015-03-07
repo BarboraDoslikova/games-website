@@ -4,7 +4,7 @@
 		body {
 			font-family: Verdana, sans-serif;
 		}
-		#myAnswerID, #myAnswerID1, #myAnswerID2 {
+		.answers {
 			margin-bottom: 20px;
 		}
 	</style>
@@ -13,68 +13,85 @@
 
 	<div id="startText">You have entered my magical forest! To pass through it, you will have to prove your worth. Would you like to try your luck against a UNICORN, a TROLL, or a RABBIT?</div>
 
-	<input id="myAnswerID">
-	<input type="submit" value="submitMyAnswer" onclick="showReplyText()">
+	<input id="myAnswerID1" class="answers">
+	<input type="submit" value="submitMyAnswer" onclick="showReplyText1()">
+	<div id="replyTextID1" style="visibility:hidden"></div>
 
+	<input id="myAnswerID2" class="answers" style="visibility:hidden">
+	<input type="submit" value="submitMyAnswer" id="submitID2" onclick="showReplyText2()" style="visibility:hidden">
+	<div id="replyTextID2" style="visibility:hidden"></div>
 
-	<div id="replyText"></div>
-
-	<input id="myAnswerID2" style="visibility:hidden">
-	<input type="submit" value="submitMyAnswer" onclick="showReplyText2()" id="submitID2" style="visibility:hidden">
-
-	<div id="replyText2"></div>
-
-	<input id="myAnswerID3" style="visibility:hidden">
-	<input type="submit" value="submitMyAnswer" onclick="showReplyText3()" id="submitID3" style="visibility:hidden">
-
-	<div id="replyText3"></div>
+	<input id="myAnswerID3" class="answers" style="visibility:hidden">
+	<input type="submit" value="submitMyAnswer" id="submitID3" onclick="showReplyText3()" style="visibility:hidden">
+	<div id="replyTextID3" style="visibility:hidden"></div>
 
 	<script type="text/javascript">		
 		
-		function showReplyText () {
-			var myAnswer = document.getElementById("myAnswerID").value.toUpperCase();
-			console.log(myAnswer);
+		function showReplyText1 () {
+			var myAnswer1 = document.getElementById("myAnswerID1").value.toUpperCase();
+			var replyText1 = document.getElementById("replyTextID1");
+			console.log(myAnswer1);
 
-			switch (myAnswer) {
+			switch (myAnswer1) {
 		    	case 'UNICORN':
-		    		document.getElementById("replyText").innerHTML = "I knew you would pick a unicorn! Before you start the challenge, have you ever killed anyone (YES or NO)?";
+		    		replyText1.innerHTML = "I knew you would pick a unicorn! Before you start the challenge, have you ever killed anyone (YES or NO)?";
 		    		break;
 		    	case 'TROLL':
-		    		document.getElementById("replyText").innerHTML = "I knew you would pick a troll! Before you start the challenge, have you ever picked your nose (YES or NO)?";
+		    		replyText1.innerHTML = "I knew you would pick a troll! Before you start the challenge, have you ever picked your nose (YES or NO)?";
     				break;			    		   	
 		    	case 'RABBIT':
-		    		document.getElementById("replyText").innerHTML = "I knew you would pick a rabbit! Before you start the challenge, have you ever eaten a rabbit (YES or NO)?";
+		    		replyText1.innerHTML = "I knew you would pick a rabbit! Before you start the challenge, have you ever eaten a rabbit (YES or NO)?";
     				break;	
 		    	default:
-		    		document.getElementById("replyText").innerHTML = "Please pick a UNICORN, a TROLL or a RABBIT.";
+		    		replyText1.innerHTML = "Please pick a UNICORN, a TROLL or a RABBIT.";
 		    		break;	
 		    }
-		    if (myAnswer === 'UNICORN' || myAnswer === 'TROLL' || myAnswer === 'RABBIT'){
-		    		document.getElementById("replyText").style.visibility = "visible";
+		    if (myAnswer1 === 'UNICORN' || myAnswer === 'TROLL' || myAnswer === 'RABBIT'){
+		    		replyText1.style.visibility = "visible";
     				document.getElementById("myAnswerID2").style.visibility = "visible";
     				document.getElementById("submitID2").style.visibility = "visible";
     		}
 		} //closes showReplyText    
 
 		function showReplyText2 () {
-			var myAnswer = document.getElementById("myAnswerID2").value.toUpperCase();
-			console.log(myAnswer);
+			var myAnswer2 = document.getElementById("myAnswerID2").value.toUpperCase();
+			var replyText2 = document.getElementById("replyTextID2");
+			console.log(myAnswer2);
 
-			if(myAnswer === 'YES'){
-        		document.getElementById("replyText2").innerHTML = "Ehm. That was unexpected. Leave my magical forest right now before I call the magical forest police!";
+			if(myAnswer2 === 'YES'){
+        		replyText2.innerHTML = "Ehm. That was unexpected. Leave my magical forest right now before I call the magical forest police!";
+        		replyText2.style.visibility = "visible";
     		}
-   			else if (myAnswer === 'NO'){
-        		document.getElementById("replyText2").innerHTML = "Good, just checking... Are you YOUNG or OLD?";
+   			else if (myAnswer2 === 'NO'){
+        		replyText2.innerHTML = "Good, just checking... Are you MALE or FEMALE?";
+        		replyText2.style.visibility = "visible";
+        		document.getElementById("myAnswerID3").style.visibility = "visible";
+   				document.getElementById("submitID3").style.visibility = "visible";
     		}
     		else {
-    			document.getElementById("replyText2").innerHTML = "Please answer YES or NO.";
+    			replyText2.innerHTML = "Please answer YES or NO.";
+    			replyText2.style.visibility = "visible";
+    		}    		
+		} //closes showReplyText2    
+
+		function showReplyText3 () {
+			var myAnswer3 = document.getElementById("myAnswerID3").value.toUpperCase();
+			var replyText3 = document.getElementById("replyTextID3");
+			console.log(myAnswer3);
+
+			if(myAnswer3 === 'MALE'){
+        		replyText3.innerHTML = "Sorry, unicorns don't like men. They are weird like that. But this means you can't pass the magical forest!";
+        		replyText3.style.visibility = "visible";
     		}
-    		if (myAnswer === 'NO'){
-		    		document.getElementById("replyText2").style.visibility = "visible";
-    				document.getElementById("myAnswerID3").style.visibility = "visible";
-    				document.getElementById("submitID3").style.visibility = "visible";
+   			else if (myAnswer3 === 'FEMALE'){
+        		replyText3.innerHTML = "Good, you can pass my magical forest!";
+        		replyText3.style.visibility = "visible";
     		}
-		 } //closes showReplyText2      		
+    		else {
+    			replyText3.innerHTML = "Please answer MALE or FEMALE.";
+    			replyText3.style.visibility = "visible";
+    		}    		
+		} //closes showReplyText3    		
 
 	</script>
 </body>
