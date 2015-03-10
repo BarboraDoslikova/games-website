@@ -3,27 +3,105 @@
 	<style>
 		body {
 			font-family: Verdana, sans-serif;
+			width: 100%;
+			height: 100%;
 		}
-		.answers {
-			margin-bottom: 20px;
+		.messageBox {
+			border: 1px solid red;
+			position: relative;
+			width: 50%;
+			height: 50%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#startText {
+			position: absolute;
+			top: 0%;
+		}
+		#startText2 {
+			position: absolute;
+			top: 12.5%;
+		}
+		.answers1 {
+			position: absolute;
+			top: 25%;
+			left: 27%;
+		}
+		.submits1 {
+			position: absolute;
+			top: 25%;
+			left: 50%;
+		}
+		.replies1 {
+			position: absolute;
+			top: 37.5%;
+		}
+		.answers2 {
+			position: absolute;
+			top: 50%;
+			left: 27%;
+		}
+		.submits2 {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+		}
+		.replies2 {
+			position: absolute;
+			top: 62.5%;
+		}
+		.answers3 {
+			position: absolute;
+			top: 75%;
+			left: 27%;
+		}
+		.submits3 {
+			position: absolute;
+			top: 75%;
+			left: 50%;
+		}
+		.replies3 {
+			position: absolute;
+			top: 87.5%;
 		}
 	</style>
 </head>
 <body>
+	<div class="messageBox">
+		<div id="startText">You have entered my magical forest! To pass through it, you will have to prove your worth.</div>
+		<div id="startText2">Would you like to try your luck against a UNICORN, a TROLL, or a RABBIT?</div>
 
-	<div id="startText">You have entered my magical forest! To pass through it, you will have to prove your worth. Would you like to try your luck against a UNICORN, a TROLL, or a RABBIT?</div>
+		<input id="myAnswerID1" class="answers1">
+		<input type="submit" class="submits1" value="submitMyAnswer" onclick="showReplyText1()">
+		<div id="replyTextID1" class="replies1" style="visibility:hidden"></div>
 
-	<input id="myAnswerID1" class="answers">
-	<input type="submit" value="submitMyAnswer" onclick="showReplyText1()">
-	<div id="replyTextID1" style="visibility:hidden"></div>
+	    <!-- unicorn branch -->
+		<input id="myAnswerID2" class="answers2" style="visibility:hidden">
+		<input type="submit" class="submits2" value="submitMyAnswer" id="submitID2" onclick="showReplyText2()" style="visibility:hidden">
+		<div id="replyTextID2" class="replies2" style="visibility:hidden"></div>
 
-	<input id="myAnswerID2" class="answers" style="visibility:hidden">
-	<input type="submit" value="submitMyAnswer" id="submitID2" onclick="showReplyText2()" style="visibility:hidden">
-	<div id="replyTextID2" style="visibility:hidden"></div>
+		<input id="myAnswerID3" class="answers3" style="visibility:hidden">
+		<input type="submit"  class="submits3" value="submitMyAnswer" id="submitID3" onclick="showReplyText3()" style="visibility:hidden">
+		<div id="replyTextID3" class="replies3" style="visibility:hidden"></div>	  
 
-	<input id="myAnswerID3" class="answers" style="visibility:hidden">
-	<input type="submit" value="submitMyAnswer" id="submitID3" onclick="showReplyText3()" style="visibility:hidden">
-	<div id="replyTextID3" style="visibility:hidden"></div>
+	    <!-- troll branch -->
+		<input id="myAnswerID2T" class="answers2" style="visibility:hidden">
+		<input type="submit" class="submits2" value="submitMyAnswer" id="submitID2T" onclick="showReplyText2T()" style="visibility:hidden">
+		<div id="replyTextID2T" class="replies2" style="visibility:hidden"></div>
+
+		<input id="myAnswerID3T" class="answers3" style="visibility:hidden">
+		<input type="submit" class="submits3" value="submitMyAnswer" id="submitID3T" onclick="showReplyText3T()" style="visibility:hidden">
+		<div id="replyTextID3T" class="replies3" style="visibility:hidden"></div>	  
+	  
+	    <!-- rabbit branch -->
+		<input id="myAnswerID2R" class="answers2" style="visibility:hidden">
+		<input type="submit" class="submits2" value="submitMyAnswer" id="submitID2R" onclick="showReplyText2R()" style="visibility:hidden">
+		<div id="replyTextID2R" class="replies2" style="visibility:hidden"></div>
+
+		<input id="myAnswerID3R" class="answers3" style="visibility:hidden">
+		<input type="submit" class="submits3" value="submitMyAnswer" id="submitID3R" onclick="showReplyText3R()" style="visibility:hidden">
+		<div id="replyTextID3R" class="replies3" style="visibility:hidden"></div>	  
+	</div> <!-- closes messageBox -->
 
 	<script type="text/javascript">		
 		
@@ -34,23 +112,25 @@
 
 			switch (myAnswer1) {
 		    	case 'UNICORN':
-		    		replyText1.innerHTML = "I knew you would pick a unicorn! Before you start the challenge, have you ever killed anyone (YES or NO)?";
-		    		break;
+		    		replyText1.innerHTML = "I knew you would pick a unicorn! Before you start the challenge, have you ever killed anyone (YES or NO)?";	
+		    		document.getElementById("myAnswerID2").style.visibility = "visible";
+    				document.getElementById("submitID2").style.visibility = "visible";
+    				break;
 		    	case 'TROLL':
 		    		replyText1.innerHTML = "I knew you would pick a troll! Before you start the challenge, have you ever picked your nose (YES or NO)?";
-    				break;			    		   	
+		    		document.getElementById("myAnswerID2T").style.visibility = "visible";
+    				document.getElementById("submitID2T").style.visibility = "visible";
+    				break;		    		   	
 		    	case 'RABBIT':
 		    		replyText1.innerHTML = "I knew you would pick a rabbit! Before you start the challenge, have you ever eaten a rabbit (YES or NO)?";
+		    		document.getElementById("myAnswerID2R").style.visibility = "visible";
+    				document.getElementById("submitID2R").style.visibility = "visible";
     				break;	
 		    	default:
-		    		replyText1.innerHTML = "Please pick a UNICORN, a TROLL or a RABBIT.";
-		    		break;	
+		    		replyText1.innerHTML = "Please pick a UNICORN, a TROLL or a RABBIT.";		    		
+    				break;	
 		    }
-		    if (myAnswer1 === 'UNICORN' || myAnswer === 'TROLL' || myAnswer === 'RABBIT'){
-		    		replyText1.style.visibility = "visible";
-    				document.getElementById("myAnswerID2").style.visibility = "visible";
-    				document.getElementById("submitID2").style.visibility = "visible";
-    		}
+		    replyText1.style.visibility = "visible";
 		} //closes showReplyText    
 
 		function showReplyText2 () {
@@ -59,19 +139,17 @@
 			console.log(myAnswer2);
 
 			if(myAnswer2 === 'YES'){
-        		replyText2.innerHTML = "Ehm. That was unexpected. Leave my magical forest right now before I call the magical forest police!";
-        		replyText2.style.visibility = "visible";
-    		}
+        		replyText2.innerHTML = "Ehm. That was unexpected. Leave my magical forest right now before I call the magical forest police!";       
+        	}
    			else if (myAnswer2 === 'NO'){
         		replyText2.innerHTML = "Good, just checking... Are you MALE or FEMALE?";
-        		replyText2.style.visibility = "visible";
         		document.getElementById("myAnswerID3").style.visibility = "visible";
    				document.getElementById("submitID3").style.visibility = "visible";
     		}
     		else {
-    			replyText2.innerHTML = "Please answer YES or NO.";
-    			replyText2.style.visibility = "visible";
-    		}    		
+    			replyText2.innerHTML = "Please answer YES or NO.";    			
+    		}  
+    		replyText2.style.visibility = "visible";  		
 		} //closes showReplyText2    
 
 		function showReplyText3 () {
@@ -81,17 +159,87 @@
 
 			if(myAnswer3 === 'MALE'){
         		replyText3.innerHTML = "Sorry, unicorns don't like men. They are weird like that. But this means you can't pass the magical forest!";
-        		replyText3.style.visibility = "visible";
-    		}
+        	}
    			else if (myAnswer3 === 'FEMALE'){
-        		replyText3.innerHTML = "Good, you can pass my magical forest!";
-        		replyText3.style.visibility = "visible";
+        		replyText3.innerHTML = "Good, you can pass my magical forest!";        		
     		}
     		else {
-    			replyText3.innerHTML = "Please answer MALE or FEMALE.";
-    			replyText3.style.visibility = "visible";
-    		}    		
+    			replyText3.innerHTML = "Please answer MALE or FEMALE.";    			
+    		} 
+    		replyText3.style.visibility = "visible";   		
 		} //closes showReplyText3    		
+
+		function showReplyText2T () {
+			var myAnswer2 = document.getElementById("myAnswerID2T").value.toUpperCase();
+			var replyText2 = document.getElementById("replyTextID2T");
+			console.log(myAnswer2);
+
+			if(myAnswer2 === 'YES'){
+        		replyText2.innerHTML = "Ehm. That was unexpected. Leave my magical forest right now before I call the magical forest police!";    		
+    		}
+   			else if (myAnswer2 === 'NO'){
+        		replyText2.innerHTML = "Good, just checking... Are you SMART or STRONG?";        		
+        		document.getElementById("myAnswerID3T").style.visibility = "visible";
+   				document.getElementById("submitID3T").style.visibility = "visible";
+    		}
+    		else {
+    			replyText2.innerHTML = "Please answer YES or NO.";    			
+    		}  
+    		replyText2.style.visibility = "visible";  		
+		} //closes showReplyText2T 
+
+		function showReplyText3T () {
+			var myAnswer3 = document.getElementById("myAnswerID3T").value.toUpperCase();
+			var replyText3 = document.getElementById("replyTextID3T");
+			console.log(myAnswer3);
+
+			if(myAnswer3 === 'SMART'){
+        		replyText3.innerHTML = "Great! Smart people can easily beat the troll and pass the magical forest!";        		
+    		}
+   			else if (myAnswer3 === 'STRONG'){
+        		replyText3.innerHTML = "Great! Strong people can easily beat the troll and pass the magical forest!";        		
+    		}
+    		else {
+    			replyText3.innerHTML = "Please answer SMART or STRONG.";    			
+    		}  
+    		replyText3.style.visibility = "visible";  		
+		} //closes showReplyText3T    
+
+		function showReplyText2R () {
+			var myAnswer2 = document.getElementById("myAnswerID2R").value.toUpperCase();
+			var replyText2 = document.getElementById("replyTextID2R");
+			console.log(myAnswer2);
+
+			if(myAnswer2 === 'YES'){
+        		replyText2.innerHTML = "Ehm. That was unexpected. Leave my magical forest right now before I call the magical forest police!";    		
+    		}
+   			else if (myAnswer2 === 'NO'){
+        		replyText2.innerHTML = "Good, just checking... Are you QUICK or RICH?";        		
+        		document.getElementById("myAnswerID3R").style.visibility = "visible";
+   				document.getElementById("submitID3R").style.visibility = "visible";
+    		}
+    		else {
+    			replyText2.innerHTML = "Please answer YES or NO.";    			
+    		} 
+    		replyText2.style.visibility = "visible";  		
+		} //closes showReplyText2R  
+
+		function showReplyText3R () {
+			var myAnswer3 = document.getElementById("myAnswerID3R").value.toUpperCase();
+			var replyText3 = document.getElementById("replyTextID3R");
+			console.log(myAnswer3);
+
+			if(myAnswer3 === 'QUICK'){
+        		replyText3.innerHTML = "Great! Quick people can easily out run the rabbit and pass the magical forest!";        		
+    		}
+   			else if (myAnswer3 === 'RICH'){
+        		replyText3.innerHTML = "Too bad! Money won't help you with the rabbit, you can't pass the magical forest!";        		
+    		}
+    		else {
+    			replyText3.innerHTML = "Please answer QUICK or RICH.";    			
+    		}
+    		replyText3.style.visibility = "visible";   		
+		} //closes showReplyText3R 
 
 	</script>
 </body>
