@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS Bin</title>
+</head>
+<body>
+<input id="myAnswerID1" type="text">
+<input type="submit" onclick="show()" value="Click me">
+<p id="replyID1"></p>
+ 
+<script>
+function animal (reply2, reply3){
+this.reply2 = reply2;
+this.reply3 = reply3;
+};
+var rabbit = new animal ("Trolls suck.", "Trolls really suck.");
+var troll = new animal ("Rabbits suck.", "Rabbits really suck.");
+var unicorn = new animal ("Everyone sucks.", "Everyone really sucks.");
+function show (){
+var myAnswer1 = document.getElementById("myAnswerID1").value.toUpperCase();
+var replyText1 = document.getElementById("replyID1");
+switch (myAnswer1) {
+case 'TROLL':
+replyText1.innerHTML = troll.reply2;
+break;
+case 'RABBIT':
+replyText1.innerHTML = rabbit.reply2;
+break;
+default:
+replyText1.innerHTML = "Please pick a UNICORN, a TROLL or a RABBIT.";
+break;
+}
+}
+</script>
+ 
+ 
+ 
+</body>
+</html> 
