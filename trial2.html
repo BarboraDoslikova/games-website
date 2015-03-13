@@ -1,40 +1,143 @@
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>JS Bin</title>
+  <style>
+  body {
+  font-family: Verdana, sans-serif;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  }
+  .messageBox {
+  border: 1px solid red;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 25%;
+  top: 5%;
+  }
+  .hidden {
+  visibility: visible;
+  }
+  #myAnswerID1 {
+  margin-bottom: 15px;
+  }
+  .show2, .show3 {
+  margin: 15px 0 15px 0;
+  }
+  </style>
 </head>
 <body>
-<input id="myAnswerID1" type="text">
-<input type="submit" onclick="show()" value="Click me">
-<p id="replyID1"></p>
- 
-<script>
-function animal (reply2, reply3){
-this.reply2 = reply2;
-this.reply3 = reply3;
-};
-var rabbit = new animal ("Trolls suck.", "Trolls really suck.");
-var troll = new animal ("Rabbits suck.", "Rabbits really suck.");
-var unicorn = new animal ("Everyone sucks.", "Everyone really sucks.");
-function show (){
-var myAnswer1 = document.getElementById("myAnswerID1").value.toUpperCase();
-var replyText1 = document.getElementById("replyID1");
-switch (myAnswer1) {
-case 'TROLL':
-replyText1.innerHTML = troll.reply2;
-break;
-case 'RABBIT':
-replyText1.innerHTML = rabbit.reply2;
-break;
-default:
-replyText1.innerHTML = "Please pick a UNICORN, a TROLL or a RABBIT.";
-break;
-}
-}
-</script>
- 
- 
- 
+  <div class="messageBox">
+    <div id="startText">
+    <p>You have entered my magical forest! To pass through it, you will have to prove your worth.</p>
+    <p>Would you like to try your luck against a UNICORN, a TROLL, or a RABBIT?</p>
+    </div>
+    <!-- 1st round -->
+    <input id="myAnswerID1">
+    <input type="submit" value="submitMyAnswer" onclick="showReply1()">
+    <div class="hidden">
+    <div id="replyID1"></div>
+    <!-- 2nd round -->
+    <div class="show2">
+    <input id="myAnswerID2">
+    <input type="submit" value="submitMyAnswer" onclick="showReply2()">
+    </div>
+    <div id="replyID2"></div>
+    <!-- 3rd round -->
+    <div class="show3">
+    <input id="myAnswerID3">
+    <input type="submit" value="submitMyAnswer" onclick="showReply3()">
+    </div>
+    <div id="replyID3"></div>
+    </div>
+  </div> <!-- closes messageBox -->
+  
+  <script type="text/javascript">
+    function animal (reply1, reply2No, reply3){
+      this.reply1 = reply1;
+      this.reply2No = reply2No;
+      this.reply3 = reply3;
+    };
+    var unicorn = new animal ("I knew you would pick a unicorn! Before you start the challenge, have you ever killed anyone (YES or NO)?", "Good, just checking... Are you MALE or FEMALE?", "Everyone really sucks.");
+    var troll = new animal ("I knew you would pick a troll! Before you start the challenge, have you ever picked your nose (YES or NO)?", "Good, just checking... Are you SMART or STRONG?", "Rabbits really suck.");
+    var rabbit = new animal ("I knew you would pick a rabbit! Before you start the challenge, have you ever eaten a rabbit (YES or NO)?", "Good, just checking... Are you QUICK or RICH?", "Trolls really suck.");
+        
+    function showReply1 () {
+    var myAnswer1 = document.getElementById("myAnswerID1").value.toUpperCase();
+    var replyText1 = document.getElementById("replyID1");
+    var show2 = document.querySelector(".show2");
+    switch (myAnswer1) {
+    case 'UNICORN':
+    replyText1.innerHTML = unicorn.reply1;
+    break;
+    case 'TROLL':
+    replyText1.innerHTML = troll.reply1;
+    break;
+    case 'RABBIT':
+    replyText1.innerHTML = rabbit.reply1;
+    break;
+    default:
+    replyText1.innerHTML = "Please pick a UNICORN, a TROLL or a RABBIT.";
+    break;
+    }
+    replyText1.style.visibility = "visible";
+    if (myAnswer1 === "UNICORN" || myAnswer1 === "TROLL" || myAnswer1 === "RABBIT") {
+    show2.style.visibility = "visible";
+    }
+    } //closes showReply1
+    function showReply2 () {
+    var myAnswer1 = document.getElementById("myAnswerID1").value.toUpperCase();
+    var myAnswer2 = document.getElementById("myAnswerID2").value.toUpperCase();
+    var replyText2 = document.getElementById("replyID2");
+    var show3 = document.querySelector(".show3");
+    if (myAnswer2 === 'YES'){
+    replyText2.innerHTML = "Ehm. That was unexpected. Leave my magical forest right now before I call the magical forest police!";
+    }
+    else if (myAnswer1 === "UNICORN" && myAnswer2 === 'NO'){
+    replyText2.innerHTML = unicorn.reply2No;
+    show3.style.visibility = "visible";
+    }
+    else if (myAnswer1 === "TROLL" && myAnswer2 === 'NO'){
+    replyText2.innerHTML = troll.reply2No;
+    show3.style.visibility = "visible";
+    }
+    else if (myAnswer1 === "RABBIT" && myAnswer2 === 'NO'){
+    replyText2.innerHTML = rabbit.reply2No;
+    show3.style.visibility = "visible";
+    }
+    else {
+    replyText2.innerHTML = "Please answer YES or NO.";
+    }
+    replyText2.style.visibility = "visible";
+    } //closes showReply2
+    function showReply3 () {
+    var myAnswer3 = document.getElementById("myAnswerID3").value.toUpperCase();
+    var replyText3 = document.getElementById("replyID3");
+    switch (myAnswer3) {
+    case 'MALE':
+    replyText3.innerHTML = "Sorry, unicorns don't like men. They are weird like that. But this means you can't pass the magical forest!";
+    break;
+    case 'FEMALE':
+    replyText3.innerHTML = "Good, you can pass my magical forest!";
+    break;
+    case 'SMART':
+    replyText3.innerHTML = "Great! Smart people can easily beat the troll and pass the magical forest!";
+    break;
+    case 'STRONG':
+    replyText3.innerHTML = "Great! Strong people can easily beat the troll and pass the magical forest!";
+    break;
+    case 'QUICK':
+    replyText3.innerHTML = "Great! Quick people can easily out run the rabbit and pass the magical forest!";
+    break;
+    case 'RICH':
+    replyText3.innerHTML = "Too bad! Money won't help you with the rabbit, you can't pass the magical forest!";
+    break;
+    default:
+    replyText3.innerHTML = "Please answer again.";
+    break;
+    }
+    replyText3.style.visibility = "visible";
+    } //closes showReply3
+  </script>
 </body>
-</html> 
+</html>
