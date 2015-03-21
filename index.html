@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Delius+Swash+Caps|Tangerine|Sacramento|Italianno|Dawning+of+a+New+Day' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Delius+Swash+Caps|Tangerine|Sacramento|Italianno|Dawning+of+a+New+Day|Love+Ya+Like+A+Sister|Bad+Script' rel='stylesheet' type='text/css'>
 
   <!-- bootsrtap -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +19,8 @@
   <script type="text/javascript" language="javascript" src='js/slayDragon.js'></script> 
   <script type="text/javascript" language="javascript" src='js/slayTroll.js'></script> 
   <script type="text/javascript" language="javascript" src='js/singAlong.js'></script> 
+  <script type="text/javascript" language="javascript" src="js/magicalForestBrowser.js"></script>  
+  
   <title>Games</title>
 </head>
 <body>  
@@ -33,7 +35,7 @@
       <div class="row">
         
         <div class="col-md-4 buttons">
-          <p class="btn btn1" onclick="magicalForest()">The Magical Forest</p>
+          <p class="btn btn1"><a href="#theMagicalForest">The Magical Forest</a><a href="#about"></a></p>
           <p class="btn btn2" onclick="slayDragon()">Slay The Dragon</p>
           <p class="btn btn3" onclick="slayTroll()">Slay The Troll</p>
           <p class="btn btn4" onclick="singAlong()">Sing-Along</p>
@@ -41,7 +43,7 @@
         </div>  
 
         <div class="col-md-4 armchair">          
-          <img src="https://lh4.googleusercontent.com/-CSKGNDXdnxQ/VPD83Saif_I/AAAAAAAACfA/OucU8KXSj4I/w337-h400-no/armchairGold5.jpg" alt="armchair">
+          <img src="images/armchairGold.jpg" alt="armchair">
         </div> 
         
         <div class="col-md-4 how">
@@ -56,12 +58,43 @@
 
   <div class="container footer">
     <div class="col-ms-6 pull-left">
-      <p>The games were last updated on 25th February 2015.</p>
+      <p>The games were last updated on 20th March 2015.</p>
     </div>
     <div class="col-ms-6 pull-right">
       <p>Created by Barbora Doslikova<p>
     </div>
   </div> 
+    
+  <div class="messageBox" id="theMagicalForest">
+
+    <div id="startText">
+      <p>You have entered my magical forest! To pass through it, you will have to prove your worth.</p>
+      <p>Would you like to measure your worth against a UNICORN, a TROLL, or a RABBIT?</p>
+    </div>    
+    
+    <!-- 1st round -->
+    <input type="text" id="myAnswerID1">
+    <input type="submit" value="Press to answer" class="submit" onclick="showReply1()">
+    
+    <div class="showLater">
+      <div id="replyID1"></div>
+
+      <!-- 2nd round -->
+      <div class="show2">
+        <input type="text" id="myAnswerID2">
+        <input type="submit" value="Press to answer" class="submit" onclick="showReply2()">
+      </div>
+      <div id="replyID2"></div>
+
+      <!-- 3rd round -->
+      <div class="show3">
+        <input type="text" id="myAnswerID3">
+        <input type="submit" value="Press to answer" class="submit" onclick="showReply3()">
+      </div>  
+      <div id="replyID3"></div>
+    </div>
+
+  </div> <!-- closes messageBox -->   
 
 </body>
 </html>
