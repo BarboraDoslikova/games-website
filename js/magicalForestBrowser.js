@@ -68,7 +68,7 @@ function showReply2 () {
 
 	// loops through myAnswer2 options and chooses the right property (e.g. reply2) from the right animal object (e.g. unicorn) to show in the replyText2 div in the HTML	
     if (myAnswer2 === "YES"){
-		replyText2.innerHTML = unicorn.reply2Yes;     
+		replyText2.innerHTML = general.reply2Yes;     
 	}
 		else if (myAnswer1 === "UNICORN" && myAnswer2 === "NO"){
 		replyText2.innerHTML = unicorn.reply2No;
