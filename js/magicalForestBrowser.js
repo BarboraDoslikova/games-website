@@ -32,8 +32,8 @@ var general = new animal ("Please pick a UNICORN, a TROLL or a RABBIT.",
 function showReply1 () {
 	// variables used by the showReply1 function
     var myAnswer1 = document.getElementById("myAnswerID1").value.toUpperCase();
-	var replyText1 = document.getElementById("replyID1");
-	var show2 = document.querySelector(".show2");
+    var replyText1 = document.getElementById("replyID1");
+    var show2 = document.querySelector(".show2");
 
 	// switches through myAnswer1 options and chooses the right property (e.g. reply1) from the right animal object (e.g. unicorn) to show in the replyText1 div in the HTML
     switch (myAnswer1) {
@@ -61,32 +61,32 @@ function showReply1 () {
 // function to determine reply2
 function showReply2 () {
     // variables used by the showReply2 function
-	var myAnswer1 = document.getElementById("myAnswerID1").value.toUpperCase();
-	var myAnswer2 = document.getElementById("myAnswerID2").value.toUpperCase();
-	var replyText2 = document.getElementById("replyID2");
-	var show3 = document.querySelector(".show3");
+    var myAnswer1 = document.getElementById("myAnswerID1").value.toUpperCase();
+    var myAnswer2 = document.getElementById("myAnswerID2").value.toUpperCase();
+    var replyText2 = document.getElementById("replyID2");
+    var show3 = document.querySelector(".show3");
 
-	// loops through myAnswer2 options and chooses the right property (e.g. reply2) from the right animal object (e.g. unicorn) to show in the replyText2 div in the HTML	
+    // loops through myAnswer2 options and chooses the right property (e.g. reply2) from the right animal object (e.g. unicorn) to show in the replyText2 div in the HTML	
     if (myAnswer2 === "YES"){
-		replyText2.innerHTML = general.reply2Yes;     
+        replyText2.innerHTML = general.reply2Yes;     
+    }
+    else if (myAnswer1 === "UNICORN" && myAnswer2 === "NO"){
+        replyText2.innerHTML = unicorn.reply2No;
+        show3.style.visibility = "visible";
 	}
-		else if (myAnswer1 === "UNICORN" && myAnswer2 === "NO"){
-		replyText2.innerHTML = unicorn.reply2No;
-		show3.style.visibility = "visible";
-	}
-	else if (myAnswer1 === "TROLL" && myAnswer2 === "NO"){
-		replyText2.innerHTML = troll.reply2No;
-		show3.style.visibility = "visible";
-	}
-	else if (myAnswer1 === "RABBIT" && myAnswer2 === "NO"){
-		replyText2.innerHTML = rabbit.reply2No;
-		show3.style.visibility = "visible";
-	}
-	else {
-		replyText2.innerHTML = general.reply2No;		
-	}  
-	// the replyText2 div in the HTML is switched from hidden (set in css as a default option) to visible
-	replyText2.style.visibility = "visible";  		
+    else if (myAnswer1 === "TROLL" && myAnswer2 === "NO"){
+	replyText2.innerHTML = troll.reply2No;
+	show3.style.visibility = "visible";
+    }
+    else if (myAnswer1 === "RABBIT" && myAnswer2 === "NO"){
+	replyText2.innerHTML = rabbit.reply2No;
+	show3.style.visibility = "visible";
+    }
+    else {
+	replyText2.innerHTML = general.reply2No;		
+    }  
+    // the replyText2 div in the HTML is switched from hidden (set in css as a default option) to visible
+    replyText2.style.visibility = "visible";  		
 } //closes function showReply2    
 
 // function to determine reply3
@@ -117,8 +117,8 @@ function showReply3 () {
     		break;
     	default:
     		replyText3.innerHTML = general.reply3A;		    		
-			break;	
+		break;	
     }
     // the replyText3 div in the HTML is switched from hidden (set in css as a default option) to visible
-	replyText3.style.visibility = "visible";   		
+    replyText3.style.visibility = "visible";   		
 } //closes function showReply3    		
