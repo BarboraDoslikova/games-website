@@ -30,12 +30,12 @@ var general = new animal ("Please pick a UNICORN, a TROLL or a RABBIT.",
 
 // function to determine reply1
 function showReply1 () {
-	// variables used by the showReply1 function
+    // variables used by the showReply1 function
     var myAnswer1 = document.getElementById("myAnswerID1").value.toUpperCase();
     var replyText1 = document.getElementById("replyID1");
     var show2 = document.querySelector(".show2");
 
-	// switches through myAnswer1 options and chooses the right property (e.g. reply1) from the right animal object (e.g. unicorn) to show in the replyText1 div in the HTML
+    // switches through myAnswer1 options and chooses the right property (e.g. reply1) from the right animal object (e.g. unicorn) to show in the replyText1 div in the HTML
     switch (myAnswer1) {
     	case "UNICORN":
     		replyText1.innerHTML = unicorn.reply1;
@@ -118,7 +118,7 @@ function showReply3 () {
     	default:
     		replyText3.innerHTML = general.reply3A;		    		
 		break;	
-    }
-    // the replyText3 div in the HTML is switched from hidden (set in css as a default option) to visible
-    replyText3.style.visibility = "visible";   		
+        }
+        // the replyText3 div in the HTML is switched from hidden (set in css as a default option) to visible
+        replyText3.style.visibility = "visible";   		
 } //closes function showReply3    		
