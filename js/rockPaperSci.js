@@ -50,12 +50,17 @@ function rockPaperSci() {
                 alert("You lose!");
             } 
         }
+        else {
+            if (computerChoice !== "PAPER") && (computerChoice !== "PAPER") && (computerChoice !== "PAPER") {
+                alert("You didn't enter ROCK, PAPER or SCISSORS. Sorry, you broke the game and are out!");
+            }
+        }        
     };
 
     // Compares choices.
     compare(userChoice, computerChoice);
 
-    // What if user selects, e.g. a dog?
+
     // If it's a tie, ask to go to the 2nd round.
     // What if there is a 4th option, e.g. a toliet?
 }
