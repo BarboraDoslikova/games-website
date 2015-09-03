@@ -2,11 +2,17 @@ function rockPaperSci() {
     // Asks the user to make a choice.
     var userChoice = prompt("Do you choose ROCK, PAPER or SCISSORS?").toUpperCase();
     alert("You choose " + userChoice + " !");
+    
+    // Checks user's choice.
+    if (userChoice !== "PAPER" && userChoice !== "PAPER" && userChoice !== "PAPER") {
+        alert("You didn't enter ROCK, PAPER or SCISSORS. Sorry, you broke the game and are out!");
+        return;
+    }
 
     // Selects a random number as the basis for the computer's choice.
     var computerChoice = Math.random();
 
-    // Cconverts the previously generated random number into the computer's choice.
+    // Converts the previously generated random number into the computer's choice.
     if (computerChoice <= 0.33) {
         computerChoice = "ROCK";
         alert("The computer chooses ROCK!");
@@ -50,11 +56,6 @@ function rockPaperSci() {
                 alert("You lose!");
             } 
         }
-        else {
-            if (computerChoice !== "PAPER") && (computerChoice !== "PAPER") && (computerChoice !== "PAPER") {
-                alert("You didn't enter ROCK, PAPER or SCISSORS. Sorry, you broke the game and are out!");
-            }
-        }        
     };
 
     // Compares choices.
