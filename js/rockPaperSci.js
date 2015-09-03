@@ -4,10 +4,10 @@ function rockPaperSci() {
     alert("You choose " + userChoice + " !");
     
     // Checks user's choice.
-    //if (userChoice !== "PAPER") && (userChoice !== "PAPER") && (userChoice !== "PAPER") {
-    //    alert("You didn't enter ROCK, PAPER or SCISSORS. Sorry, you broke the game and are out!");
-    //    return;
-    //}
+    if (userChoice !== "PAPER" && userChoice !== "PAPER" && userChoice !== "PAPER") {
+        alert("You didn't enter ROCK, PAPER or SCISSORS. Sorry, you broke the game and are out!");
+        return;
+    }
 
     // Selects a random number as the basis for the computer's choice.
     var computerChoice = Math.random();
